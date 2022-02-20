@@ -1,3 +1,4 @@
+package com.application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -94,9 +95,9 @@ public class App {
 
 	private static String generateWord() throws FileNotFoundException {
 		
-		File file = new File("configs/wordList.txt");
+		File file = new File("configs/FiveLetterFrequentWords.txt");
 		Scanner scanner = new Scanner(file);
-		int rand = (int) ((Math.random() * (5757 - 1)) + 1);
+		int rand = (int) ((Math.random() * (686 - 1)) + 1);
 		int count = 1;
 		
 		while (scanner.hasNextLine() && count < rand) {
