@@ -9,7 +9,7 @@ public class App {
 	public static void main(String[] args) {
 
 		do {
-  
+   
 			// initialise accumulators
 			int guessCount = 0;
 
