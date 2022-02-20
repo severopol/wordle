@@ -111,7 +111,7 @@ public class App {
 
 		} while (!outputString.equals(wordToGuess)); {
 
-		System.out.println("You guessed correctly!");
+		System.out.println("You guessed correctly, well done!");
 
 		// need logic that says if a character has already been guessed and is in right
 		// index and it doesn't appear anywhere else then it
