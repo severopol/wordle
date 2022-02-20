@@ -1,23 +1,26 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class App {
 
 	public static void main(String[] args) {
 
-		String wordToGuess = "teeth";
+		String wordToGuess = "sours";
 		String outputString = "";
 		StringBuilder output = new StringBuilder("");
 		int guessCount = 0;
 		ArrayList<Character> letters = new ArrayList<>();
-
+		Scanner scanner;
+		
 		do {
 			output = new StringBuilder("");
 
 			// getting the user input - user guess
 			System.out.println("Please enter a 5 letter word");
-			Scanner scanner = new Scanner(System.in);
+			scanner = new Scanner(System.in);
 			String input = scanner.nextLine();
 
 			input = input.toLowerCase();
@@ -68,6 +71,10 @@ public class App {
 				}
 					it.remove();
 			}
+			
+			Set<Character> set = new LinkedHashSet<Character>(reducedList);
+			reducedList.clear();
+			reducedList.addAll(set);
 
 			if (!reducedList.isEmpty()) {
 					System.out.println("Correct letter, wrong position: " + reducedList);
@@ -76,10 +83,11 @@ public class App {
 			outputString = output.toString();
 			guessCount++;
 			
+			
 		} while (!outputString.equals(wordToGuess));
 		
 			System.out.println("You guessed correctly, well done!");
 			System.out.println("You made " + guessCount + " guesses");
-
+			scanner.close();
 	}
 }
