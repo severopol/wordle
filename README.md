@@ -1,0 +1,2 @@
+# wordle
+basic wordle project
