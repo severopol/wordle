@@ -6,13 +6,17 @@ public class App {
 	public static String wordToGuess = "teeth";
 	public static String outputString = "";
 	public static StringBuilder output = new StringBuilder("");
+	public static int guessCount = 0;
 
 	public static void main(String[] args) {
 
+		// ACCUMULATING ANSWERS WITH MULTIPLE ANSWERS. WHEN DID THIS HAPPEN???
+		// OUTPUT NEEDS TO BE RESET AFTER EACH GUESS
+		
 		do {
-
+			output = new StringBuilder("");
 			// initialise accumulators
-			int guessCount = 0;
+			
 
 			ArrayList<Character> letters = new ArrayList<>();
 
@@ -108,10 +112,11 @@ public class App {
 
 			outputString = output.toString();
 			
-
+			guessCount++;
 		} while (!outputString.equals(wordToGuess)); {
 
 		System.out.println("You guessed correctly, well done!");
+		System.out.println("You made " + guessCount + " guesses" );
 
 		// need logic that says if a character has already been guessed and is in right
 		// index and it doesn't appear anywhere else then it
