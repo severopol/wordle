@@ -4,12 +4,13 @@ import java.util.Scanner;
 public class App {
 
 	public static String wordToGuess = "teeth";
-	public static String outputString;
+	public static String outputString = "";
+	public static StringBuilder output = new StringBuilder("");
 
 	public static void main(String[] args) {
 
 		do {
-   
+
 			// initialise accumulators
 			int guessCount = 0;
 
@@ -19,7 +20,7 @@ public class App {
 			System.out.println("Please enter a 5 letter word");
 			Scanner scanner = new Scanner(System.in);
 			String input = scanner.nextLine();
-			StringBuilder output = new StringBuilder("");
+			
 			input = input.toLowerCase();
 
 			for (int i = 0; i < input.length(); i++) {
@@ -40,7 +41,7 @@ public class App {
 						}
 					}
 
-				}
+				} 
 
 				if (output.length() == i) {
 					output.append("*");
@@ -49,48 +50,66 @@ public class App {
 			}
 
 			System.out.println(output);
+			
+			outputString = output.toString();
+			
+			// REMOVE DUPLICATES FROM ARRAY LIST FIRST 
 
+//			ArrayList<Character> lettersToArray = new ArrayList<Character>();
+//			 lettersToArray.addAll(letters);
+			 
+			
 			if (letters.size() > 0) {
 
-				int frequencyInWordToGuess = 0;
-				int frequencyInOutput = 0;
-				int frequencyInInput = 0;
-
+//				int frequencyInWordToGuess = 0;
+//				int frequencyInOutput = 0;
+//				int frequencyInInput = 0;
+				
 				for (int i = 0; i < letters.size(); i++) {
-
-					for (int j = 0; j < wordToGuess.length(); j++) {
-
-						if (letters.get(i) == wordToGuess.charAt(j)) {
-							letters.remove(letters.get(i));
-							frequencyInWordToGuess++;
-							break;
-						}
-
-//                                                                                if (letters.get(i) == output.charAt(j)) {
-//
-//                                                                                                frequencyInOutput++;
-//                                                                                }
-//                                                                                
-//                                                                                if (letters.get(i) == input.charAt(j)) {
-//
-//                                                                                                frequencyInInput++;
-//                                                                                }
-
+					
+					if (outputString.contains(letters.get(i) + "")) {
+						letters.remove(letters.get(i));
+						
 					}
-
-//                                                                if (frequencyInWordToGuess == frequencyInOutput) {
-//                                                                                //letters.remove(letters.get(i));
-//                                                                }
-
+					
 				}
+
+//				for (int i = 0; i < letters.size(); i++) {
+//
+//					for (int j = 0; j < wordToGuess.length(); j++) {
+//
+//						if (letters.get(i) == wordToGuess.charAt(j)) {
+//							letters.remove(letters.get(i));
+//							frequencyInWordToGuess++;
+//							break;
+//						}
+//
+////                                                                                            if (letters.get(i) == output.charAt(j)) {
+////
+////                                                                                                            frequencyInOutput++;
+////                                                                                            }
+////                                                                                            
+////                                                                                            if (letters.get(i) == input.charAt(j)) {
+////
+////                                                                                                            frequencyInInput++;
+////                                                                                            }
+//
+//					}
+//
+////                                                                            if (frequencyInWordToGuess == frequencyInOutput) {
+////                                                                                            //letters.remove(letters.get(i));
+////                                                                            }
+//
+//				}
 				if (letters.size() > 0) {
 					System.out.println("Correct letter, wrong position: " + letters);
 				}
 			}
 
 			outputString = output.toString();
+			
 
-		} while (!outputString.equals(wordToGuess));
+		} while (!outputString.equals(wordToGuess)); {
 
 		System.out.println("You guessed correctly!");
 
@@ -98,20 +117,9 @@ public class App {
 		// index and it doesn't appear anywhere else then it
 		// needs to be removed from the ARRAY LIST
 
-		// IF WORD ISN'T RIGHT - GUESS AGAIN, IF IT IS RIGHT - YOU'VE GUESSED CORRECTLY.
-		// ENDS GAME. GIVE COUNT.
-
-		// check user input against constant
-
-		// PRINT out result with asterisks in place of WRONG letters, letters they
-		// guessed in RIGHT PLACE PRINTED IN
-
 		// PRINT OUT SEPARATE LINE WITH REMAINING GUESSES THAT WERE IN THE WRONG PLACE
 
 		// need ACCUMULATOR OF COUNT using guess count
-
-		// BEFORE CAN COUNT GUESSES - NEED A WAY OF CHECKING IF WHOLE WORD IS CORRECT.
-		// IF WORD IS GUESSED. LOOP NEEDS TO STOP. BOOLEAN?
 
 		// PRINT OUT INCREMENT - number of tries
 
@@ -123,4 +131,4 @@ public class App {
 		// LASTLY - SYSOUT RULES AT START
 
 	}
-}
+}}
