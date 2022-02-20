@@ -38,7 +38,7 @@ public class App {
 
 						} else {
 							letters.add(wordLetter);
-						}
+						} 
 					}
 
 				} 
